@@ -1,0 +1,88 @@
+INFORME DE PRUEBAS - Sistema de préstamo de equipos del LCI
+Comando de verificación: python pruebas.py (desde la carpeta TALLER1)
+Fecha de verificación de esta copia: 11/11/2026 (hora de Colombia)
+==================================================================
+Nota de procedencia: esta batería se volvió a ejecutar en una copia temporal del proyecto recibido. El estudiante debe repetir el comando en su carpeta TALLER1 y conservar su propia captura de evidencia.
+
+[1] Las 25 peticiones del mostrador
+  OK     petición  1: Devuelva Lenovo ThinkPad E14 antes del 07/03/2026.
+  OK     petición  2: Este equipo solo se presta con aval del departamento.
+  OK     petición  3: Devuelva Microscopio óptico binocular antes del 05/03/2026.
+  OK     petición  4: Este equipo solo se presta con aval del departamento.
+  OK     petición  5: Tiene una multa pendiente
+  OK     petición  6: Este kit está incompleto
+  OK     petición  7: Reserva registrada para Kit Arduino UNO.
+  OK     petición  8: Tiene una multa pendiente
+  OK     petición  9: Este equipo ya está prestado
+  OK     petición 10: Devuelva Lenovo ThinkPad E14 antes del 07/03/2026.
+  OK     petición 11: Devuelva HP ProBook 440 antes del 07/03/2026.
+  OK     petición 12: Ya alcanzó el número máximo
+  OK     petición 13: Devuelva Microscopio óptico binocular antes del 06/03/2026.
+  OK     petición 14: Reserva registrada para Microscopio
+  OK     petición 15: Devuelva Kit Arduino UNO antes del 12/03/2026.
+  OK     petición 16: No fue posible completar la operación
+  OK     petición 17: Devuelva Kit Arduino UNO antes del 10/03/2026.
+  OK     petición 18: Equipo devuelto a tiempo.
+  OK     petición 19: Equipo devuelto a tiempo.
+  OK     petición 20: Equipo devuelto a tiempo.
+  OK     petición 21: Equipo devuelto con 2 día(s) de retraso. Multa: $4.000.
+  OK     petición 22: Equipo devuelto con 4 día(s) de retraso. Multa: $40.000.
+  OK     petición 23: Equipo devuelto a tiempo.
+  OK     petición 24: Tiene una multa pendiente
+  OK     petición 25: Tiene una multa pendiente
+
+[2] Estado final
+  OK     multa de E-102 Andrés = 4000
+  OK     multa de D-201 Roberto = 40000
+  OK     multa de E-103 Valentina = 14000 (sin cambio)
+  OK     multa de E-101 Camila = 0
+  OK     K-03 sigue prestado a Camila
+  OK     ningún otro equipo queda prestado
+  OK     K-02 quedó reservado (no prestado)
+  OK     log con exactamente un SYS-00 (petición 16)
+  OK     log con 9 errores de negocio (peticiones 2,4,5,6,8,9,12,24,25)
+
+[3] Rollback: el guardado falla
+  OK     el usuario ve el mensaje genérico
+  OK     K-03 vuelve a estar como antes (prestado = False)
+  OK     no se guardó ningún préstamo
+  OK     la bandera de simulación se apaga después
+
+[4] Códigos inválidos (nunca deben mostrar un error técnico)
+  OK     usuario inexistente al prestar: mensaje sin texto técnico
+  OK     equipo inexistente al prestar: mensaje sin texto técnico
+  OK     usuario inexistente al reservar: mensaje sin texto técnico
+  OK     equipo inexistente al reservar: mensaje sin texto técnico
+  OK     equipo inexistente al devolver: mensaje sin texto técnico
+  OK     los códigos inválidos quedan en el log
+
+[5] Devolver un equipo que no está prestado
+  OK     respuesta clara
+
+[6] Fechas incorrectas (la vista)
+  OK     02/03/2026 es válida
+  OK     '31/02/2026' se rechaza
+  OK     '2026-03-02' se rechaza
+  OK     'hoy' se rechaza
+  OK     '02-03-2026' se rechaza
+  OK     '' se rechaza
+
+[7] Polimorfismo (valores de cada clase)
+  OK     portátil: plazo 5 / 7 / 10
+  OK     microscopio: plazo 2 / 3 / 4
+  OK     cupo 2 / 4 / 6
+  OK     multa diaria 2000 / 10000 / 1500
+
+[8] Excepciones: código y mensajes
+  OK     UB-01 hereda de PrestamoException
+  OK     EN-01 y EN-02 con mensajes distintos
+  OK     AV-01
+  OK     CE-01
+  OK     el mensaje técnico se guarda aparte
+
+TODAS LAS PRUEBAS PASARON
+
+Peticiones del mostrador: 25 de 25 con el resultado esperado.
+Rollback: verificado (el equipo vuelve a su estado anterior si el guardado falla).
+Los detalles de la ejecución de main.py se pueden ver en la opción 6 del menú.
+Los errores se verifican con códigos UB-01, EN-01, EN-02, AV-01, CE-01 y SYS-00.

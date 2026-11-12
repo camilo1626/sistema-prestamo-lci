@@ -1,0 +1,12 @@
+AJUSTES FINALES REALIZADOS
+==========================
+
+- La guía Git/GitHub ahora refleja los tres commits que ya creaste (e4cbf10, da5b61c y 5411d13). No ordena reiniciar el repositorio ni repetir esas etapas.
+- Se documentó el cuarto commit para incorporar README, pruebas, informe, UML, tablas y documentación.
+- Se actualizó la sección de Git dentro de Documentacion_y_sustentacion.docx para que no contradiga tu historial real.
+- Se corrigió .gitignore para conservar la exclusión de .env y también ignorar logs, caché, entornos virtuales, archivos temporales y ZIP.
+- Se actualizó la lista de verificación con los estados reales: tres commits locales creados; cuarto commit y GitHub pendientes.
+- Se actualizó README.md y se dejó el campo del estudiante para completar.
+- Se ejecutó python pruebas.py en una copia temporal integrada con el proyecto recibido: 60 OK, TODAS LAS PRUEBAS PASARON. Repite la prueba en tu computadora y conserva tu captura.
+
+No contiene ni altera tu carpeta .git.
